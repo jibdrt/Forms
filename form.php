@@ -1,17 +1,19 @@
 <?php
-
-$name = $_POST["user_name"];
-$mail = $_POST["user_mail"];
-$msg = $_POST["user_message"];
-echo 'je m\'appelle <span style="color:blue">' .$name. "<br>", "</span> mon e-mail est " .$mail . "<br>", "je vous dis ".$msg . " ";
-$current_date = date('Y');
-$birth_date = $_POST['user_birthdate'];
-$age = $current_date-$birth_date;
-echo 'j\'ai '. $age. 'ans ';
-
-$humeur = $_POST["mood"];
-if ($humeur == 'bien'){
-    echo 'je vais bien';
-}else{
-    echo 'je vais super mal';
-};
+if(isset($_POST['user_mail'])&& !empty($_POST['user_mail'])){
+    $email = $_POST['user_mail'];
+    $objet = $_POST['message_topic'];
+    $message = $_POST['user_message'];
+    $recipient = 'lucie.b.bonjour@gmail.com';
+    $send = 'message envoyé par '.$email.' : '.$message;
+    $headerFields = array(
+      "From: {$email}",
+      "MIME-Version: 1.0",
+      "Content-Type: text/html;charset=utf-8"
+      );
+    mail($recipient, $objet, $send, implode("\r\n", $headerFields));
+    echo "message envoyé à ".$recipient;
+}
+else{
+  echo 'erreur';
+}
+?>
