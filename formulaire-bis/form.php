@@ -15,8 +15,8 @@ if(isset($_POST['user_mail'])&& !empty($_POST['user_mail'])){
     $objet = $_POST['user_topic'];
     $recipient = 'lucie.b.bonjour@gmail.com';
 
-    $send = 'message envoyé par '.$raison.' : '.$name.'<br>'
-    .$email.'<br>'.$adress.'<br>'.$start.'<br>'.$end.'<br>'.$number.'<br>'.$language.'<br>'.$country.'<br>'.$theme.'<br>'.$message;
+    $send = 'Raison sociale : '.$raison.'<br>Nom : '.$name.'<br> E-mail : '
+    .$email.'<br> Adresse postale : '.$adress.'<br> Entre le : '.$start.'<br> Et le : '.$end.'<br> Nombre de participants : '.$number.'<br> Nationalité : '.$language.'<br> Pays : '.$country.'<br> Thème souhaité : '.$theme.'<br> Message ajouté : '.$message;
 
 
 
